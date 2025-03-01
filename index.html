@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Account Deletion Request</title>
+    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+        }
+        .form-container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+        }
+        h2 {
+            text-align: center;
+        }
+        label {
+            font-size: 14px;
+            margin-bottom: 5px;
+        }
+        input[type="email"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .message {
+            text-align: center;
+            margin-top: 15px;
+            font-size: 14px;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h2>Request Account Deletion</h2>
+        <form id="deletion-form">
+            <label for="email">Enter your email address</label>
+            <input type="email" id="email" name="email" required>
+            <button type="submit">Request Deletion</button>
+        </form>
+        <div class="message" id="message"></div>
+    </div>
+
+    <script>
+        // Initialize EmailJS with your User ID
+        emailjs.init('BGoFA-qAJs8gNqjzI');
+
+        // Handle form submission
+        document.getElementById('deletion-form').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent form submission to server
+
+            var userEmail = document.getElementById('email').value;
+
+            if (userEmail) {
+                var templateParams = {
+                    email: userEmail
+                };
+
+                // Send email using EmailJS
+                emailjs.send('service_1c94ltj', 'template_xeflsp4', templateParams)
+                    .then(function(response) {
+                        console.log('Success:', response);
+                        document.getElementById('message').innerHTML = "Your deletion request has been sent successfully. We will process it soon.";
+                    }, function(error) {
+                        console.log('Error:', error);
+                        document.getElementById('message').innerHTML = "There was an error sending your request. Please try again later.";
+                    });
+            } else {
+                document.getElementById('message').innerHTML = "Please enter a valid email address.";
+            }
+        });
+    </script>
+</body>
+</html>

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Account Deletion Request</title>
+    <title>Carib+ App Support</title>
     <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
     <style>
         body {
@@ -12,6 +12,23 @@
             padding: 20px;
             display: flex;
             justify-content: center;
+            flex-direction: column;
+            align-items: center;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .header h1 {
+            font-size: 28px;
+            color: #333;
+        }
+        .description {
+            font-size: 16px;
+            color: #555;
+            margin-bottom: 30px;
+            max-width: 600px;
+            text-align: center;
         }
         .form-container {
             background-color: white;
@@ -53,9 +70,25 @@
             font-size: 14px;
             color: #555;
         }
+        .support-link {
+            font-size: 14px;
+            text-align: center;
+            margin-top: 20px;
+        }
     </style>
 </head>
 <body>
+
+    <div class="header">
+        <h1>Welcome to Carib+ App</h1>
+        <p class="description">
+            Exploring the Caribbean and beyond. Carib+ is an engaging and informative mobile app designed to provide users with a fun and interactive experience centered around the Caribbean region. 
+            The app offers a wide variety of quizzes, hangman game, regional word dictionary, educational content, and entertainment that showcase the rich history, culture, and diverse traditions of the Caribbean. 
+            With features like trivia questions, interesting facts, and continuous updates on the region, Carib+ serves as both an enjoyable source of knowledge and a great way to connect with the Caribbean's unique identity. 
+            Whether you're testing your knowledge or discovering something new, Carib+ is the perfect companion for anyone passionate about the Caribbean.
+        </p>
+    </div>
+
     <div class="form-container">
         <h2>Request Account Deletion</h2>
         <form id="deletion-form">
@@ -64,6 +97,10 @@
             <button type="submit">Request Deletion</button>
         </form>
         <div class="message" id="message"></div>
+    </div>
+
+    <div class="support-link">
+        <p>If you need support for the Carib+ App, feel free to <a href="mailto:caribplusapp@gmail.com">email us</a>.</p>
     </div>
 
     <script>
@@ -95,5 +132,6 @@
             }
         });
     </script>
+
 </body>
 </html>
